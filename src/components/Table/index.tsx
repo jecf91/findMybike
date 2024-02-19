@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bike } from '../../Models/Bike';
 import Feedback from '../Feedback';
+import { Link } from 'react-router-dom';
 
 const dateFromIsoToString = (date: number) =>
   new Date(date).toLocaleDateString();
@@ -20,6 +21,7 @@ const Table = ({ bikes }: { bikes: Bike[] }) => {
             <th>Case title</th>
             <th>Description</th>
             <th>Picture of Bike</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +45,9 @@ const Table = ({ bikes }: { bikes: Bike[] }) => {
                   ) : (
                     'No picture available'
                   )}
+                </td>
+                <td>
+                  <Link to={`/details/${bike.id}`}>Details</Link>
                 </td>
               </tr>
             ))
